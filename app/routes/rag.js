@@ -27,7 +27,7 @@ const cache = new NodeCache({ stdTTL: 300 }); // 5 min cache
  */
 router.post('/ask', async (req, res) => {
     const { clientId, question } = req.body;
-    console.log(`Receibendo pergunta: ${question} do cliente: ${clientId}`);
+    console.log(`Recebendo pergunta: ${question} do cliente: ${clientId}`);
 
     const cacheKey = `${clientId}_${question}`;
 

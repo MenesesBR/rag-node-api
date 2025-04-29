@@ -5,7 +5,7 @@ const openai = new OpenAI(api_key = process.env.OPENAI_API_KEY);
 exports.askOpenAI = async (systemPrompt, question) => {
 
     const response = await openai.responses.create({
-        model: "gpt-4.1-nano-2025-04-14",
+        model: process.env.OPENAI_RESPONSE_MODEL, // modelo de linguagem
         instructions: systemPrompt,
         input: question,
     })
@@ -15,7 +15,7 @@ exports.askOpenAI = async (systemPrompt, question) => {
 
 exports.getQuestionEmbedding = async (question) => {
     const response = await openai.embeddings.create({
-        model: 'text-embedding-ada-002', // modelo de embeddings
+        model: process.env.OPENAI_EMBEDDINGS_MODEL, // modelo de embeddings
         input: question,
     });
 
