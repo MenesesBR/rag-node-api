@@ -110,8 +110,10 @@ Baseie sua resposta apenas nas seguintes informações:
 
 ${context}
 
-Caso não tenha certeza ou não tenha informações relevantes, diga que não sabe ou que não tem informações suficientes.
-Responda de forma clara e objetiva.`
+Certifique-se de responder apenas referente ao contexto fornecido.
+Não adicione informações que não estejam no contexto.
+Mande parágrafos curtos e, caso necessário, os separe por tópicos.
+Caso não tenha certeza ou não tenha informações relevantes, diga que não sabe ou que não tem informações suficientes.`
 
         const answer = await openaiService.askOpenAI(systemPrompt, question)
 
