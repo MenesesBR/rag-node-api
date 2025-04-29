@@ -38,7 +38,7 @@ router.post('/ask', async (req, res) => {
         const knowledgeBase = await mongoService.getClientKnowledge(clientId);
 
         if (!knowledgeBase || knowledgeBase.length === 0) {
-            return res.status(404).json({ error: 'Nenhum conhecimento encontrado para este cliente.' });
+            return res.status(504).json({ error: 'Nenhum conhecimento encontrado para este cliente.' });
         }
 
         const persona = await mongoService.getClientPersona(clientId)
@@ -104,7 +104,7 @@ Exemplo de resposta: 1,4,7.`
                 .trim())
             .join('\n');
 
-        const systemPrompt = `Você é um assistente com a seguinte persona: {persona}
+        const systemPrompt = `Você é um assistente com a seguinte persona: ${persona}
 Baseie sua resposta apenas nas seguintes informações:
 
 ${context}
