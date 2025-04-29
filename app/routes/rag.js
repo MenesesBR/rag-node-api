@@ -116,7 +116,8 @@ Responda de forma clara e objetiva.`
         const answer = await openaiService.askOpenAI(systemPrompt, question)
 
         cache.set(cacheKey, answer);
-        console.log(`Resposta cacheada para a pergunta: ${question} do cliente: ${clientId}`);
+
+        console.log(`Resposta gerada para a pergunta: ${question} do cliente: ${answer}`);
         res.status(200).json({ answer });
     } catch (err) {
         console.error(err);
